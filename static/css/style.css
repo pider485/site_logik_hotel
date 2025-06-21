@@ -1,3 +1,9 @@
 body{
-    background: #0dd806;
+    background: #ffffff;  
+}
+
+.da{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
