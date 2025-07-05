@@ -1,22 +1,17 @@
 {% extends 'base.html' %}
-
-
 {% block content %}
-<h1>BOOKING SITE</h1>
-{{message}}
-<h3>rooms:</h3>
-<ul>
-    <div class="da">
-{% for room in rooms %}
+<h1>Бронь</h1>
 <div class="card" style="width: 18rem;">
 <img src="{{room.image.url}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><span class="badge text-bg-warning">Room: {{room.number}}</span></h5>
     <p class="card-text">{{room.description}}</p>
-    <a href="{% url 'booking' room.id%}" class="btn btn-primary">Price: {{room.price}}₴</a>
+    <a href="#">Price: {{room.price}}₴</a>
   </div>
+   <form action="" method="post">
+    {% csrf_token %}
+        {{form.as_div}}
+        <button type="submit" class="btn btn-primary">Бронювати</button>
+   </form>
 </div>
-{% endfor %}
-</div>
-</ul>
 {% endblock %}
