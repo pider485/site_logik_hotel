@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Бронь</h1>
-<div class="card" style="width: 18rem;">
+<div class="row">
+<div class="col"><div class="card" style="width: 18rem;">
 <img src="{{room.image.url}}" class="card-img-top" alt="...">
-  <div class="card-body">
+<div class="col">
+<div class="card-body">
     <h5 class="card-title"><span class="badge text-bg-warning">Room: {{room.number}}</span></h5>
     <p class="card-text">{{room.description}}</p>
     <a href="#">Price: {{room.price}}₴</a>
@@ -11,7 +13,11 @@
    <form action="" method="post">
     {% csrf_token %}
         {{form.as_div}}
-        <button type="submit" class="btn btn-primary">Бронювати</button>
+        <button type="submit" class="btn btn-primary m-3">Бронювати</button>
    </form>
 </div>
+  
+</div></div>
+</div>
+
 {% endblock %}

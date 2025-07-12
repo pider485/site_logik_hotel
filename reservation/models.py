@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -37,6 +38,12 @@ class Reservation(models.Model):
     def __str__(self):
         return f"data start: {self.date_start}/ data end: {self.date_end}/ data creation: {self.date_creation}"
 
+    # def clean(self):
+    #     if not self.room:
+    #         return
+    #     ex_booking = Reservation.objects.filter(Room = self.room, date_start__lt=self.date_end, date_end__gt= self.date_start)
+    #     if ex_booking.exists():
+            # raise ValidationError('Кімната зайнята')
     class Meta:
         ordering = ['date_creation','date_start','date_end']
         verbose_name = "Reservation"  
